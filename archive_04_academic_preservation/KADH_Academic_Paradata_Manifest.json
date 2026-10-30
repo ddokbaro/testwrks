@@ -1,0 +1,235 @@
+{
+  "schema_version": "KADH-Reproducibility-1.1",
+  "project_title": "혐오 담론의 교차 촉매(Cross-Catalysis)와 중심축 이동: 청와대 국민청원(2017-08~2019-08)의 비선형 동역학 분석",
+  "principal_investigator": {
+    "name": "김바로 (Kim, Baro)",
+    "affiliation": "한국학중앙연구원",
+    "orcid": "https://orcid.org/0000-0002-4456-9616"
+  },
+  "packaged_at_kst": "2026-10-31T04:58:27+09:00",
+  "repository": {
+    "remote": "https://github.com/ddokbaro/testwrks",
+    "branch": "feat/petitions-stage1-archive",
+    "commit": "df31fc909466972a424e259ba746f7d3ef183b2c",
+    "working_tree_dirty": true
+  },
+  "execution_environment": {
+    "python": "3.14.8",
+    "platform": "Linux-6.8.0-83-generic-x86_64-with-musl1",
+    "packages": {
+      "pandas": "3.1.0",
+      "numpy": "2.5.4",
+      "pyarrow": "26.0.0",
+      "scipy": "1.18.1",
+      "statsmodels": "0.15.0",
+      "matplotlib": "3.11.2",
+      "python-docx": "1.2.0"
+    }
+  },
+  "data_source": {
+    "url": "https://github.com/lovit/petitions_archive",
+    "commit": "03dc3f3d69e03a0a4885350c6991e328fc0a6b81",
+    "original_platform": "https://www1.president.go.kr/petitions (현재 폐쇄)",
+    "license": "명시 없음 (NOASSERTION)"
+  },
+  "data_coverage": {
+    "begin_min": "2017-08-25",
+    "begin_max": "2019-08-30",
+    "note": "청와대 국민청원 운영기간(2017-08-17 ~ 2022-05-09) 중 일부. 2019-04 이후 월별 건수가 급감(수백 건)하므로 시계열 분석 시 수집 편향 유의."
+  },
+  "pipeline": [
+    {
+      "stage": "1 수집·원본 보존",
+      "script": "stage1_collect_and_archive_raw.py",
+      "status": "executed",
+      "records": 436660,
+      "started_at_kst": "2026-10-31T04:17:45+09:00"
+    },
+    {
+      "stage": "2 규칙 태깅·복제 탐지",
+      "script": "stage2_preprocess_and_tag.py",
+      "status": "executed",
+      "lexicon_version": "1.1.0",
+      "started_at_kst": "2026-10-31T04:38:50+09:00",
+      "summary": {
+        "total_petitions": 436660,
+        "substrate_subcorpus_loose": 21783,
+        "substrate_subcorpus_strict": 16298,
+        "substrate_counts_strict": {
+          "S1_Game_Subculture": 656,
+          "S2_LGBTQ": 1126,
+          "S3_Islam_Refugee": 6781,
+          "S4_Gender_Disability": 7249,
+          "S5_China": 1537
+        },
+        "substrate_counts_loose": {
+          "S1_Game_Subculture": 1035,
+          "S2_LGBTQ": 1723,
+          "S3_Islam_Refugee": 8535,
+          "S4_Gender_Disability": 9894,
+          "S5_China": 3058
+        },
+        "ligand_counts_in_strict_subcorpus": {
+          "L1_Morality_Family": 633,
+          "L2_Hygiene_Disease": 425,
+          "L3_Meritocracy_Freeride": 1698,
+          "L4_Security_Sovereignty": 3749
+        },
+        "multi_substrate_petitions_strict": 962,
+        "clone_petitions_full_corpus": 26588,
+        "clone_rate_full_corpus_pct": 6.089,
+        "clone_rate_strict_subcorpus_pct": 6.725,
+        "hub_rule_counts_strict_subcorpus": {
+          "None": 13794,
+          "Hub_B_Meritocracy_Youth": 1526,
+          "Hub_A_Protestant_Moral": 806,
+          "Hub_C_Hybrid_Coalition": 172
+        }
+      }
+    },
+    {
+      "stage": "2b 규칙 타당도 검증",
+      "script": "stage2b_validate_rules.py",
+      "status": "executed",
+      "micro_scores": {
+        "validation_dev_sample_lexicon-v1.1.csv": {
+          "strict": {
+            "tp": 80,
+            "fp": 8,
+            "fn": 17,
+            "precision": 0.909,
+            "recall": 0.825,
+            "f1": 0.865
+          },
+          "loose": {
+            "tp": 95,
+            "fp": 26,
+            "fn": 2,
+            "precision": 0.785,
+            "recall": 0.979,
+            "f1": 0.872
+          }
+        },
+        "validation_heldout_sample_lexicon-v1.1.csv": {
+          "strict": {
+            "tp": 40,
+            "fp": 4,
+            "fn": 7,
+            "precision": 0.909,
+            "recall": 0.851,
+            "f1": 0.879
+          },
+          "loose": {
+            "tp": 47,
+            "fp": 13,
+            "fn": 0,
+            "precision": 0.783,
+            "recall": 1.0,
+            "f1": 0.879
+          }
+        }
+      }
+    },
+    {
+      "stage": "2c 웍스AI LLM 정밀 주석",
+      "prompt": "annotation/wrksai_coder_prompt.md",
+      "status": "pending",
+      "note": "웍스AI 에이전트 실행 후 annotation/llm_run_log.json 과 llm_labels_*.csv 를 추가하고 Stage 2b 를 재실행한다."
+    },
+    {
+      "stage": "3 동역학 분석",
+      "script": "stage3_kinetic_analysis.py",
+      "status": "executed",
+      "started_at_kst": "2026-10-31T04:52:07+09:00",
+      "figures": [
+        "fig1_weekly_substrate_concentration.png",
+        "fig2_cross_catalysis_gamma_heatmap.png",
+        "fig3_yemen_autocatalytic_sigmoid.png",
+        "fig4_nle_ligand_count_effect.png",
+        "fig5_hub_ee_by_half_year.png"
+      ]
+    },
+    {
+      "stage": "4 보존 패키지",
+      "script": "stage4_academic_reproducibility_packager.py",
+      "status": "executed"
+    },
+    {
+      "stage": "5 논문 초안",
+      "file": "paper/manuscript_draft_ko.md",
+      "status": "draft"
+    }
+  ],
+  "generative_ai_audit_trail": [
+    {
+      "stages": [
+        "1",
+        "2",
+        "2b",
+        "3",
+        "4",
+        "5"
+      ],
+      "tool": "Wrks Coding Agent (한국학중앙연구원 웍스AI 코딩 에이전트)",
+      "model_name_and_version": "Claude Opus 5.5 (bizrouter/anthropic/claude-opus-5.5)",
+      "date": "2026-10-30",
+      "role": "파이프라인 코드 작성·수정 및 실행, 규칙 사전 개정, 검증 표본 180건 1차 주석(AI 보조 라벨), 통계 결과 요약, 논문 초안 문장 작성",
+      "human_verification_required": [
+        "annotation/validation_*.csv 의 gold_relevant·gold_hostile 라벨 전수 검수",
+        "논문 초안의 해석·인용·서술 전면 검토"
+      ]
+    },
+    {
+      "stages": [
+        "2c"
+      ],
+      "tool": "웍스AI '나만의 에이전트'",
+      "model_name_and_version": "미실행 - 실행 시 UI 표시 모델명을 그대로 기록",
+      "role": "층화 표본 3,000건 다중 라벨 주석(예정)"
+    }
+  ],
+  "excluded_from_bundle": {
+    "archive_01_raw_petitions/raw_jsonl/*": "원문 재배포 제한(원천 무라이선스·청원인 저작권·개인정보). 원천 URL·커밋·SHA-256으로 재수집 검증",
+    "archive_01_raw_petitions/*.parquet": "원문 포함 파생본. Stage 1 재실행으로 재생성",
+    "archive_02_preprocessed/stage2_preprocessed_substrates.parquet": "원문 포함. Stage 2 재실행으로 재생성",
+    "archive_02_preprocessed/stage2_llm_batch_input_strat3000.csv": "원문 포함. Stage 2 재실행으로 재생성",
+    "archive_02_preprocessed/stage2_validation_sample.csv": "원문 발췌 포함. 동일 시드로 재생성"
+  },
+  "rights": {
+    "code": "MIT (저장소 LICENSE 참조)",
+    "derived_data_and_figures": "CC BY-NC-ND 4.0 (KADH 제21조 준용)",
+    "source_corpus": "원천 저장소 라이선스 없음(NOASSERTION). 원문은 재배포하지 않음"
+  },
+  "artifact_checksums_sha256": {
+    "stage1_collect_and_archive_raw.py": "6548c2b9ff90d28d7559e7a3e3ab046501a4a86bab621846709585e25a86eeac",
+    "stage2_preprocess_and_tag.py": "ae9475d25ce53181b61f9817542af3c77cb51f933c53addd027f059233e3087a",
+    "stage2b_validate_rules.py": "6c02a7ec69f7328021bc67a192047e32b4f07ebecbcf77628746df2e9da25688",
+    "stage3_kinetic_analysis.py": "680c8f9f13206d56c15430171be80e2974be7fcf0aefbfc296790d5206bee1ff",
+    "stage4_academic_reproducibility_packager.py": "1c879a5e9206a779afc407cdbfb223367f7417c64ea301cbcc0fd88c2c20f605",
+    "requirements.txt": "b12b9160e965f00cc539430b29ad6d9ebd6930d377ba32b14b03e3122fda6fc3",
+    "README.md": "5cde6fa225f1a1391d2c890d9dff4b0d8799de12c9661e65ba2c88a19f5c957f",
+    "lexicon/lexicon.json": "e02f5cfcc2e777a031e0b94c978a2b210b7bc2e003e5de990a444696232053e9",
+    "annotation/validation_dev_sample_lexicon-v1.1.csv": "676486044a97c964d1f9bb9628744cb5ddfc8475b1fe58068e7b74ea79b020f9",
+    "annotation/validation_heldout_sample_lexicon-v1.1.csv": "a880e4926f4b80dfb98282fb08fcc076fa7dbff4746aa6a5b9c093c300eb33ab",
+    "annotation/wrksai_coder_prompt.md": "884ef0930f3dac164d79a85f5932a2f75e92af3308246edd6ee5e87215d5cffd",
+    "archive_01_raw_petitions/stage1_raw_provenance.json": "78dee55b989bd5742cff049c0e04fa346ac8d3a50c833e155f82069260a897b3",
+    "archive_01_raw_petitions/ro-crate-metadata.json": "2c61c39f480ff0ac23abb9b736982e42a1430f8fdc254bcebfb393de58875399",
+    "archive_02_preprocessed/stage2_provenance.json": "e33a68b4615c2efaae14a365cfec280600a00a48fc3274cf80b5e0d7a0c5187a",
+    "archive_02_preprocessed/stage2_lexicon_diagnostics.json": "2fb853448254dfc3db6ffa2c60d46cd4699f5c937bdc57dbca94982aa5a07a88",
+    "archive_02_preprocessed/stage2_monthly_counts.csv": "afbb7ff619d504696624228ea73170413b15b849bacdbdc3447ee755aa154230",
+    "archive_02_preprocessed/stage2_weekly_counts.csv": "d047af0ac75ce435695d4f55cfdccadb977838e3913ccb02864a894eece9ccd0",
+    "archive_02_preprocessed/stage2b_rule_validation.json": "d1863fed0c78454161de77e7b2d1b78d9a5b0b4db93c143e1b5f4946ac54a722",
+    "archive_02_preprocessed/stage2_tagged_full.parquet": "23199b488f8950f77f4fe40e05d33fe6652948f51cbdad326fa225bc4fd2dce4",
+    "archive_03_analysis_outputs/fig1_weekly_substrate_concentration.png": "ccf750fbffaecd31db4f586370f4a85c3190463ec6c108208b5f9af456c49562",
+    "archive_03_analysis_outputs/fig2_cross_catalysis_gamma_heatmap.png": "b7626b527f32915fb0f8cd09c6ba05c97bb06a496a6f9b9d96be5498d1249dc6",
+    "archive_03_analysis_outputs/fig3_yemen_autocatalytic_sigmoid.png": "c5c8fe8be75f48dab543a192cf805290bc5584436c4865e4bbb6d68bba8f92e2",
+    "archive_03_analysis_outputs/fig4_nle_ligand_count_effect.png": "9382d943ccc5353ca2f909873ff6dbf2a2a504bd3ce1077d23ffbe2c200576ce",
+    "archive_03_analysis_outputs/fig5_hub_ee_by_half_year.png": "1567ddaac9a7f9928b3c93c1bbd8272d969c0f2a95fd27ad61e78ba7febc1298",
+    "archive_03_analysis_outputs/stage3_kinetic_results_summary.json": "08ca170682dd2672a110e64cd01e795baa525619ff482a3d70507ec20211d18c",
+    "archive_03_analysis_outputs/stage3_table_granger_fdr.csv": "7c9ff7b60fa779ea3b283c97946f2c7b73a5105db73fa3866b390b96cd9c6e10",
+    "archive_03_analysis_outputs/stage3_table_nle_descriptive.csv": "7b2d8fb6e8a8f4c08a8f1a08ca2719cd839bbba140a59aab23f7524760e13760",
+    "archive_03_analysis_outputs/stage3_table_weekly_concentration.csv": "8cedda540784cc4274a1b92e0ffb149f8e2d353e0ffcce7df941a941bf23fce5",
+    "paper/manuscript_draft_ko.md": "3280d8ff08e70ea9be3dbee438780925697f5edb748a789b1f83431c31a172be",
+    "paper/manuscript_draft_ko.docx": "82fd9869ec89c24510ebea1388a775aab85dc906de717dffaa3ae263f1a3d109"
+  }
+}

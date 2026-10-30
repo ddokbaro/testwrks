@@ -1,0 +1,61 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "혐오 담론의 교차 촉매(Cross-Catalysis)와 중심축 이동: 청와대 국민청원(2017-08~2019-08)의 비선형 동역학 분석",
+      "datePublished": "2026-10-31",
+      "author": {
+        "@id": "https://orcid.org/0000-0002-4456-9616"
+      },
+      "license": {
+        "@id": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      },
+      "isBasedOn": {
+        "@id": "https://github.com/lovit/petitions_archive"
+      },
+      "hasPart": [
+        {
+          "@id": "20261031_CheongWaDae_CrossCatalysis_Reproducible_Package.zip"
+        },
+        {
+          "@id": "KADH_Academic_Paradata_Manifest.json"
+        }
+      ]
+    },
+    {
+      "@id": "https://orcid.org/0000-0002-4456-9616",
+      "@type": "Person",
+      "name": "김바로 (Kim, Baro)",
+      "affiliation": "한국학중앙연구원"
+    },
+    {
+      "@id": "20261031_CheongWaDae_CrossCatalysis_Reproducible_Package.zip",
+      "@type": "File",
+      "encodingFormat": "application/zip",
+      "sha256": "09b77a6e25a4a0cef7bafae81b1f19f573bb0318d776339ab790128b3a94d4fc"
+    },
+    {
+      "@id": "KADH_Academic_Paradata_Manifest.json",
+      "@type": "File",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "#wrks-coding-agent",
+      "@type": "SoftwareApplication",
+      "name": "Wrks Coding Agent (Claude Opus 5.5)",
+      "description": "코드 작성·실행 및 초안 작성 보조"
+    }
+  ]
+}
