@@ -124,7 +124,7 @@ def build_manifest(files: list[Path]) -> dict:
             "remote": git("remote", "get-url", "origin"),
             "branch": git("symbolic-ref", "--short", "HEAD"),
             "commit": git("rev-parse", "HEAD"),
-            "working_tree_dirty": bool(git("status", "--porcelain")),
+            "working_tree_dirty": bool(git("status", "--porcelain", "--untracked-files=no")),
         },
         "execution_environment": {
             "python": sys.version.split()[0],
