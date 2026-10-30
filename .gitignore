@@ -1,0 +1,4 @@
+archive_01_raw_petitions/
+__pycache__/
+.wrks/
+node_modules
