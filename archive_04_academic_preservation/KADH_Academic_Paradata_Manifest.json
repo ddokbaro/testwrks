@@ -6,11 +6,11 @@
     "affiliation": "한국학중앙연구원",
     "orcid": "https://orcid.org/0000-0002-4456-9616"
   },
-  "packaged_at_kst": "2026-10-31T04:58:27+09:00",
+  "packaged_at_kst": "2026-10-31T04:58:59+09:00",
   "repository": {
     "remote": "https://github.com/ddokbaro/testwrks",
     "branch": "feat/petitions-stage1-archive",
-    "commit": "df31fc909466972a424e259ba746f7d3ef183b2c",
+    "commit": "0c296ebf4611b0f7dc5c8f0e76d244be1fb0c8d2",
     "working_tree_dirty": true
   },
   "execution_environment": {
@@ -207,7 +207,7 @@
     "stage3_kinetic_analysis.py": "680c8f9f13206d56c15430171be80e2974be7fcf0aefbfc296790d5206bee1ff",
     "stage4_academic_reproducibility_packager.py": "1c879a5e9206a779afc407cdbfb223367f7417c64ea301cbcc0fd88c2c20f605",
     "requirements.txt": "b12b9160e965f00cc539430b29ad6d9ebd6930d377ba32b14b03e3122fda6fc3",
-    "README.md": "5cde6fa225f1a1391d2c890d9dff4b0d8799de12c9661e65ba2c88a19f5c957f",
+    "README.md": "143f74277c7287d92be4285f1f63f9f8675491e9ff038690b1c8263cc1ecf10a",
     "lexicon/lexicon.json": "e02f5cfcc2e777a031e0b94c978a2b210b7bc2e003e5de990a444696232053e9",
     "annotation/validation_dev_sample_lexicon-v1.1.csv": "676486044a97c964d1f9bb9628744cb5ddfc8475b1fe58068e7b74ea79b020f9",
     "annotation/validation_heldout_sample_lexicon-v1.1.csv": "a880e4926f4b80dfb98282fb08fcc076fa7dbff4746aa6a5b9c093c300eb33ab",
