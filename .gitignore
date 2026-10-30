@@ -1,2 +1,7 @@
-archive_01_raw_petitions/
+archive_01_raw_petitions/raw_jsonl/
+archive_01_raw_petitions/*.parquet
+archive_02_preprocessed/stage2_preprocessed_substrates.parquet
+archive_02_preprocessed/stage2_llm_batch_input_strat3000.csv
+archive_02_preprocessed/stage2_validation_sample.csv
+archive_04_academic_preservation/*.zip
 __pycache__/

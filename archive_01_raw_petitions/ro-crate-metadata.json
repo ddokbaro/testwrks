@@ -1,0 +1,335 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "ro-crate-metadata.json",
+      "@type": "CreativeWork",
+      "conformsTo": {
+        "@id": "https://w3id.org/ro/crate/1.1"
+      },
+      "about": {
+        "@id": "./"
+      }
+    },
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "name": "Cheong Wa Dae National Petitions Raw Corpus (2017-08 – 2019-08)",
+      "description": "청와대 국민청원 게시판의 청원종료 청원(제목·본문·분류·동의수, 일부 replies 포함). lovit/petitions_archive 월별 수집본을 바이트 단위로 보존. 2019-09 이후 청원은 미수록.",
+      "datePublished": "2026-10-31",
+      "temporalCoverage": "2017-08-25/2019-08-30",
+      "isBasedOn": {
+        "@id": "https://github.com/lovit/petitions_archive"
+      },
+      "author": {
+        "@id": "#collector"
+      },
+      "hasPart": [
+        {
+          "@id": "cheongwadae_petitions_2017-08_2019-08.parquet"
+        },
+        {
+          "@id": "stage1_raw_provenance.json"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2017-08.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2017-09.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2017-10.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2017-11.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2017-12.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-01.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-02.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-03.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-04.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-05.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-06.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-07.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-08.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-09.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-10.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-11.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2018-12.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-01.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-02.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-03.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-04.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-05.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-06.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-07.jsonl"
+        },
+        {
+          "@id": "raw_jsonl/petitions_2019-08.jsonl"
+        }
+      ]
+    },
+    {
+      "@id": "#collector",
+      "@type": "Person",
+      "name": "Kim Baro (Academy of Korean Studies)"
+    },
+    {
+      "@id": "https://github.com/lovit/petitions_archive",
+      "@type": "SoftwareSourceCode",
+      "name": "lovit/petitions_archive",
+      "version": "03dc3f3d69e03a0a4885350c6991e328fc0a6b81"
+    },
+    {
+      "@id": "cheongwadae_petitions_2017-08_2019-08.parquet",
+      "@type": "File",
+      "encodingFormat": "application/vnd.apache.parquet",
+      "sha256": "637b9f5561e610f01b72ce2b9f54d6bd7dfa3e6d5705934b99c0e662c375db3b",
+      "description": "raw_jsonl 전체를 명시적 스키마로 병합한 분석용 파생본"
+    },
+    {
+      "@id": "stage1_raw_provenance.json",
+      "@type": "File",
+      "encodingFormat": "application/json"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2017-08.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "1838533",
+      "sha256": "13f09d466b6a8f5732bf5609f0799701dc397c5740d75275b5977bd9930c4729",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2017-08"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2017-09.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "20367606",
+      "sha256": "7efd889a289a1667a60edfe6eb5800904885552cbeb094d6098207c102a0f28c",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2017-09"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2017-10.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "11988849",
+      "sha256": "da5eb9f672e82902e34acfb4bdb396691f11ea48c75dc67ed4ad2e36e387d009",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2017-10"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2017-11.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "28385442",
+      "sha256": "368f9135ac713d319c49c8b87ee7a8d76294de87dd7b48a96b8abbe259cf0b7b",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2017-11"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2017-12.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "29042016",
+      "sha256": "a7b855226f06b0d43e499a19b85f3327519489e4e049b0e3f78a0e975b4ffbde",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2017-12"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-01.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "43887779",
+      "sha256": "ccf564cd45276e34b07c9192d6e92943eab554a762e405e636e9438ef850e9ac",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-01"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-02.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "33843037",
+      "sha256": "75ac961e765beff3ecd8247946dc1cbd361de58fff95e8eb6f79742f577f9994",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-02"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-03.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "34265200",
+      "sha256": "ac7383c93dfdb8727b9a3c82b5cc5b977d7165b8d52b80561478edb5cd854568",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-03"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-04.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "35529793",
+      "sha256": "54b3e395bde491accdcb9c92303cd2d83b5571fcc363eb6fc46e677f054af64b",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-04"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-05.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "37538162",
+      "sha256": "356c71f46abc553ad067f71265b9b3fcdd094ed13f15e6359ba9557a20779346",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-05"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-06.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "37837699",
+      "sha256": "e30a7d98ec11d334a502436347c8865d2f2e0b105b937def9e3ff5c772208ea2",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-06"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-07.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "40468039",
+      "sha256": "d7222af57781f34e995ffcf9f4ba9d0f6708ac420c3086413f519bc18a6edcff",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-07"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-08.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "39774497",
+      "sha256": "dd01d3f6a6fd42746e0b075c66b848a0c4a3c9b514ff4080d391124107ee7f5d",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-08"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-09.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "36058757",
+      "sha256": "c0e733390aeb830f1d0aedcffc4bfefb1caa433a77cb9271841697bb041fc0e5",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-09"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-10.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "38117900",
+      "sha256": "b9ede4eaa8fab0e95348098450278d46c98791de7d37bb8b4632c2b6aecf539f",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-10"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-11.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "37662451",
+      "sha256": "444d6c64739c4a35e1f48c1c4efafc32feced03d10306539da8613fb0081843b",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-11"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2018-12.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "33020291",
+      "sha256": "e6ed495522f650c0c37093aef3a1fc1cb04e82cf341a3e5a0ea4dedab1d1ef08",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2018-12"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-01.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "34828399",
+      "sha256": "b8c8a04effcdc2deea75ddba30f84f8c92b300009b9689a9b33094b01437c5b9",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-01"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-02.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "30809443",
+      "sha256": "492c4fdd71eace08c516cd7ecdce9235c0aeb2da1ebe19b829b09611c74767fd",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-02"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-03.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "34938812",
+      "sha256": "abde7d58a513b6d9019a2911acc906c6ebebb04322356b9f7b9e9365f8ef8373",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-03"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-04.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "2036030",
+      "sha256": "6db47ca63b0f46731ec22a2043aa55bd2928efd620bf9cc8c52726f7962b2fc0",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-04"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-05.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "2581665",
+      "sha256": "624dadd3d1f8b5ed9065e7b539095990dcb1babe40fb6b9d45f3feb025f8b5a6",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-05"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-06.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "2139900",
+      "sha256": "28886a963d2fabdad0e90ec2d64adf42dc0668389250fb6a4969fad968240282",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-06"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-07.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "2356267",
+      "sha256": "bc15c72d2e0e15ff0b05488127841a110784168149ef17f578622c9103771e12",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-07"
+    },
+    {
+      "@id": "raw_jsonl/petitions_2019-08.jsonl",
+      "@type": "File",
+      "encodingFormat": "application/jsonl",
+      "contentSize": "2471734",
+      "sha256": "6364e84171bb4ddbc03cf1445d91e19d05bfe568baeceb0a573079092e8a5500",
+      "contentUrl": "https://raw.githubusercontent.com/lovit/petitions_archive/03dc3f3d69e03a0a4885350c6991e328fc0a6b81/petitions_2019-08"
+    }
+  ]
+}
