@@ -6,12 +6,12 @@
     "affiliation": "한국학중앙연구원",
     "orcid": "https://orcid.org/0000-0002-4456-9616"
   },
-  "packaged_at_kst": "2026-10-31T04:58:59+09:00",
+  "packaged_at_kst": "2026-10-31T04:59:15+09:00",
   "repository": {
     "remote": "https://github.com/ddokbaro/testwrks",
     "branch": "feat/petitions-stage1-archive",
-    "commit": "0c296ebf4611b0f7dc5c8f0e76d244be1fb0c8d2",
-    "working_tree_dirty": true
+    "commit": "123c1126eb9b99b181922ed5f83acda9e27273de",
+    "working_tree_dirty": false
   },
   "execution_environment": {
     "python": "3.14.8",
@@ -205,7 +205,7 @@
     "stage2_preprocess_and_tag.py": "ae9475d25ce53181b61f9817542af3c77cb51f933c53addd027f059233e3087a",
     "stage2b_validate_rules.py": "6c02a7ec69f7328021bc67a192047e32b4f07ebecbcf77628746df2e9da25688",
     "stage3_kinetic_analysis.py": "680c8f9f13206d56c15430171be80e2974be7fcf0aefbfc296790d5206bee1ff",
-    "stage4_academic_reproducibility_packager.py": "1c879a5e9206a779afc407cdbfb223367f7417c64ea301cbcc0fd88c2c20f605",
+    "stage4_academic_reproducibility_packager.py": "2f9eca9657f090f5632835d8d603aa4f37f631b9456b199f1d928362ea3f57de",
     "requirements.txt": "b12b9160e965f00cc539430b29ad6d9ebd6930d377ba32b14b03e3122fda6fc3",
     "README.md": "143f74277c7287d92be4285f1f63f9f8675491e9ff038690b1c8263cc1ecf10a",
     "lexicon/lexicon.json": "e02f5cfcc2e777a031e0b94c978a2b210b7bc2e003e5de990a444696232053e9",
