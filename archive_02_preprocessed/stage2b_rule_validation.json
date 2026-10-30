@@ -1,0 +1,252 @@
+{
+  "annotation_note": "gold 라벨은 Claude Opus 5.5(Wrks Coding Agent)의 AI 보조 주석이며 인간 검수 전 잠정치다. relevant=해당 집단·쟁점이 청원의 실질 주제, hostile=해당 집단에 대한 배제·비하·권리 제한 요구.",
+  "files": {
+    "validation_dev_sample_lexicon-v1.1.csv": {
+      "n": 120,
+      "per_substrate": {
+        "S1_Game_Subculture": {
+          "strict": {
+            "tp": 13,
+            "fp": 3,
+            "fn": 0,
+            "precision": 0.812,
+            "recall": 1.0,
+            "f1": 0.897,
+            "hostile_share_among_rule_positive": 0.062
+          },
+          "loose": {
+            "tp": 13,
+            "fp": 3,
+            "fn": 0,
+            "precision": 0.812,
+            "recall": 1.0,
+            "f1": 0.897,
+            "hostile_share_among_rule_positive": 0.062
+          }
+        },
+        "S2_LGBTQ": {
+          "strict": {
+            "tp": 14,
+            "fp": 2,
+            "fn": 1,
+            "precision": 0.875,
+            "recall": 0.933,
+            "f1": 0.903,
+            "hostile_share_among_rule_positive": 0.5
+          },
+          "loose": {
+            "tp": 15,
+            "fp": 3,
+            "fn": 0,
+            "precision": 0.833,
+            "recall": 1.0,
+            "f1": 0.909,
+            "hostile_share_among_rule_positive": 0.5
+          }
+        },
+        "S3_Islam_Refugee": {
+          "strict": {
+            "tp": 18,
+            "fp": 1,
+            "fn": 3,
+            "precision": 0.947,
+            "recall": 0.857,
+            "f1": 0.9,
+            "hostile_share_among_rule_positive": 0.842
+          },
+          "loose": {
+            "tp": 21,
+            "fp": 12,
+            "fn": 0,
+            "precision": 0.636,
+            "recall": 1.0,
+            "f1": 0.778,
+            "hostile_share_among_rule_positive": 0.576
+          }
+        },
+        "S4_Gender_Disability": {
+          "strict": {
+            "tp": 20,
+            "fp": 1,
+            "fn": 12,
+            "precision": 0.952,
+            "recall": 0.625,
+            "f1": 0.755,
+            "hostile_share_among_rule_positive": 0.81
+          },
+          "loose": {
+            "tp": 30,
+            "fp": 5,
+            "fn": 2,
+            "precision": 0.857,
+            "recall": 0.938,
+            "f1": 0.896,
+            "hostile_share_among_rule_positive": 0.714
+          }
+        },
+        "S5_China": {
+          "strict": {
+            "tp": 15,
+            "fp": 1,
+            "fn": 1,
+            "precision": 0.938,
+            "recall": 0.938,
+            "f1": 0.938,
+            "hostile_share_among_rule_positive": 0.812
+          },
+          "loose": {
+            "tp": 16,
+            "fp": 3,
+            "fn": 0,
+            "precision": 0.842,
+            "recall": 1.0,
+            "f1": 0.914,
+            "hostile_share_among_rule_positive": 0.737
+          }
+        }
+      },
+      "micro": {
+        "strict": {
+          "tp": 80,
+          "fp": 8,
+          "fn": 17,
+          "precision": 0.909,
+          "recall": 0.825,
+          "f1": 0.865
+        },
+        "loose": {
+          "tp": 95,
+          "fp": 26,
+          "fn": 2,
+          "precision": 0.785,
+          "recall": 0.979,
+          "f1": 0.872
+        }
+      }
+    },
+    "validation_heldout_sample_lexicon-v1.1.csv": {
+      "n": 60,
+      "per_substrate": {
+        "S1_Game_Subculture": {
+          "strict": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 1,
+            "precision": 1.0,
+            "recall": 0.889,
+            "f1": 0.941,
+            "hostile_share_among_rule_positive": 0.0
+          },
+          "loose": {
+            "tp": 9,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "hostile_share_among_rule_positive": 0.0
+          }
+        },
+        "S2_LGBTQ": {
+          "strict": {
+            "tp": 8,
+            "fp": 0,
+            "fn": 1,
+            "precision": 1.0,
+            "recall": 0.889,
+            "f1": 0.941,
+            "hostile_share_among_rule_positive": 0.625
+          },
+          "loose": {
+            "tp": 9,
+            "fp": 1,
+            "fn": 0,
+            "precision": 0.9,
+            "recall": 1.0,
+            "f1": 0.947,
+            "hostile_share_among_rule_positive": 0.6
+          }
+        },
+        "S3_Islam_Refugee": {
+          "strict": {
+            "tp": 8,
+            "fp": 2,
+            "fn": 3,
+            "precision": 0.8,
+            "recall": 0.727,
+            "f1": 0.762,
+            "hostile_share_among_rule_positive": 0.8
+          },
+          "loose": {
+            "tp": 11,
+            "fp": 4,
+            "fn": 0,
+            "precision": 0.733,
+            "recall": 1.0,
+            "f1": 0.846,
+            "hostile_share_among_rule_positive": 0.733
+          }
+        },
+        "S4_Gender_Disability": {
+          "strict": {
+            "tp": 7,
+            "fp": 2,
+            "fn": 2,
+            "precision": 0.778,
+            "recall": 0.778,
+            "f1": 0.778,
+            "hostile_share_among_rule_positive": 0.667
+          },
+          "loose": {
+            "tp": 9,
+            "fp": 6,
+            "fn": 0,
+            "precision": 0.6,
+            "recall": 1.0,
+            "f1": 0.75,
+            "hostile_share_among_rule_positive": 0.4
+          }
+        },
+        "S5_China": {
+          "strict": {
+            "tp": 9,
+            "fp": 0,
+            "fn": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "hostile_share_among_rule_positive": 0.889
+          },
+          "loose": {
+            "tp": 9,
+            "fp": 2,
+            "fn": 0,
+            "precision": 0.818,
+            "recall": 1.0,
+            "f1": 0.9,
+            "hostile_share_among_rule_positive": 0.727
+          }
+        }
+      },
+      "micro": {
+        "strict": {
+          "tp": 40,
+          "fp": 4,
+          "fn": 7,
+          "precision": 0.909,
+          "recall": 0.851,
+          "f1": 0.879
+        },
+        "loose": {
+          "tp": 47,
+          "fp": 13,
+          "fn": 0,
+          "precision": 0.783,
+          "recall": 1.0,
+          "f1": 0.879
+        }
+      }
+    }
+  },
+  "llm_agreement": "llm_labels_*.csv 없음 - 웍스AI 에이전트 라벨 반환 후 재실행"
+}

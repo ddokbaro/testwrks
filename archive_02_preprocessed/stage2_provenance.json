@@ -1,0 +1,71 @@
+{
+  "stage": "Stage 2 preprocessing & rule tagging",
+  "script": "stage2_preprocess_and_tag.py",
+  "script_sha256": "ae9475d25ce53181b61f9817542af3c77cb51f933c53addd027f059233e3087a",
+  "started_at_kst": "2026-10-31T04:38:50+09:00",
+  "finished_at_kst": "2026-10-31T04:41:20+09:00",
+  "inputs": {
+    "archive_01_raw_petitions/cheongwadae_petitions_2017-08_2019-08.parquet": "637b9f5561e610f01b72ce2b9f54d6bd7dfa3e6d5705934b99c0e662c375db3b",
+    "lexicon/lexicon.json": "e02f5cfcc2e777a031e0b94c978a2b210b7bc2e003e5de990a444696232053e9"
+  },
+  "lexicon_version": "1.1.0",
+  "parameters": {
+    "clone_prefix_len": 100,
+    "clone_min_cluster": 3,
+    "llm_batch_size": 3000,
+    "validation_per_substrate": 16,
+    "validation_negatives": 20,
+    "random_seed": 20261030,
+    "primary_substrate_rule": "정규식 적중 횟수 최대 기질(동률 시 사전 순서상 앞)",
+    "hub_rule": "L1|L2 → Hub A, L3 → Hub B, 둘 다 → Hub C"
+  },
+  "summary": {
+    "total_petitions": 436660,
+    "substrate_subcorpus_loose": 21783,
+    "substrate_subcorpus_strict": 16298,
+    "substrate_counts_strict": {
+      "S1_Game_Subculture": 656,
+      "S2_LGBTQ": 1126,
+      "S3_Islam_Refugee": 6781,
+      "S4_Gender_Disability": 7249,
+      "S5_China": 1537
+    },
+    "substrate_counts_loose": {
+      "S1_Game_Subculture": 1035,
+      "S2_LGBTQ": 1723,
+      "S3_Islam_Refugee": 8535,
+      "S4_Gender_Disability": 9894,
+      "S5_China": 3058
+    },
+    "ligand_counts_in_strict_subcorpus": {
+      "L1_Morality_Family": 633,
+      "L2_Hygiene_Disease": 425,
+      "L3_Meritocracy_Freeride": 1698,
+      "L4_Security_Sovereignty": 3749
+    },
+    "multi_substrate_petitions_strict": 962,
+    "clone_petitions_full_corpus": 26588,
+    "clone_rate_full_corpus_pct": 6.089,
+    "clone_rate_strict_subcorpus_pct": 6.725,
+    "hub_rule_counts_strict_subcorpus": {
+      "None": 13794,
+      "Hub_B_Meritocracy_Youth": 1526,
+      "Hub_A_Protestant_Moral": 806,
+      "Hub_C_Hybrid_Coalition": 172
+    }
+  },
+  "outputs": {
+    "archive_02_preprocessed/stage2_tagged_full.parquet": "23199b488f8950f77f4fe40e05d33fe6652948f51cbdad326fa225bc4fd2dce4",
+    "archive_02_preprocessed/stage2_preprocessed_substrates.parquet": "fabfe8a653cf9614e16a9119be24cf60ce3108b492e41d9c18371f51cb9e62e2",
+    "archive_02_preprocessed/stage2_monthly_counts.csv": "afbb7ff619d504696624228ea73170413b15b849bacdbdc3447ee755aa154230",
+    "archive_02_preprocessed/stage2_weekly_counts.csv": "d047af0ac75ce435695d4f55cfdccadb977838e3913ccb02864a894eece9ccd0",
+    "archive_02_preprocessed/stage2_lexicon_diagnostics.json": "2fb853448254dfc3db6ffa2c60d46cd4699f5c937bdc57dbca94982aa5a07a88",
+    "archive_02_preprocessed/stage2_llm_batch_input_strat3000.csv": "e2002fd426de721cb8f6b83a60076633b661bd9e5d5e9bfd5ff0875326a8328c",
+    "archive_02_preprocessed/stage2_validation_sample.csv": "c91eccfac90054fa34a3c9b82819d5f2ffead64485840909995e0d8bd4b634cc"
+  },
+  "environment": {
+    "python": "3.14.8",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4"
+  }
+}
