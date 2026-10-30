@@ -1,0 +1,1014 @@
+{
+  "analysis_timestamp_kst": "2026-10-31T04:52:07+09:00",
+  "input": "archive_02_preprocessed/stage2_tagged_full.parquet",
+  "analysis_window": [
+    "2017-09-04",
+    "2019-03-31"
+  ],
+  "design_notes": [
+    "농도 H_i(t) = 주별 strict 기질 청원 수 / 주별 전체 청원 수 × 1000",
+    "γ_ij = VAR(p)에서 H_j(t) 방정식의 H_i 시차계수 합(p는 AIC 선택). 유의성은 Granger F검정 + BH-FDR(20개 검정).",
+    "2019-04 이후는 원천 수집량 급감으로 제외",
+    "+NLE: 청원 단위 OLS(log1p 동의수), HC3 표준오차, 길이·월·분류·복제·기질 통제",
+    "ee = (Hub B 적중 수 - Hub A 적중 수)/(합), 기질별 부트스트랩 95% CI(2000회)",
+    "모든 결과는 규칙 기반 태깅(lexicon v1.1)에 의존하며, 검증 정밀도·재현율은 stage2b_rule_validation.json 참조"
+  ],
+  "cross_catalytic_gamma": {
+    "n_weeks": 81,
+    "window": [
+      "2017-09-04",
+      "2019-03-31"
+    ],
+    "transform": "first_difference_of_log1p",
+    "adf_log1p_levels": {
+      "S1_Game_Subculture": {
+        "stat": -4.452,
+        "p": 0.0002
+      },
+      "S2_LGBTQ": {
+        "stat": -2.2698,
+        "p": 0.1819
+      },
+      "S3_Islam_Refugee": {
+        "stat": -2.4829,
+        "p": 0.1197
+      },
+      "S4_Gender_Disability": {
+        "stat": -5.8921,
+        "p": 0.0
+      },
+      "S5_China": {
+        "stat": -4.0104,
+        "p": 0.0014
+      }
+    },
+    "lag_order_aic": 4,
+    "lag_order_bic": 0,
+    "gamma_sum_of_lag_coefficients": {
+      "S1_Game_Subculture": {
+        "S1_Game_Subculture": -1.7805,
+        "S2_LGBTQ": 1.344,
+        "S3_Islam_Refugee": -0.7458,
+        "S4_Gender_Disability": -0.0501,
+        "S5_China": 0.3738
+      },
+      "S2_LGBTQ": {
+        "S1_Game_Subculture": -0.4153,
+        "S2_LGBTQ": -1.5483,
+        "S3_Islam_Refugee": 0.774,
+        "S4_Gender_Disability": 0.1518,
+        "S5_China": 0.064
+      },
+      "S3_Islam_Refugee": {
+        "S1_Game_Subculture": -0.3173,
+        "S2_LGBTQ": 1.2534,
+        "S3_Islam_Refugee": -0.5584,
+        "S4_Gender_Disability": 0.0435,
+        "S5_China": 0.0593
+      },
+      "S4_Gender_Disability": {
+        "S1_Game_Subculture": -0.3615,
+        "S2_LGBTQ": 0.015,
+        "S3_Islam_Refugee": 0.2427,
+        "S4_Gender_Disability": -0.3106,
+        "S5_China": 0.4086
+      },
+      "S5_China": {
+        "S1_Game_Subculture": 0.0838,
+        "S2_LGBTQ": 0.2247,
+        "S3_Islam_Refugee": -0.0077,
+        "S4_Gender_Disability": 0.0495,
+        "S5_China": -1.3334
+      }
+    },
+    "granger_tests": [
+      {
+        "source": "S2_LGBTQ",
+        "target": "S1_Game_Subculture",
+        "F": 1.1277,
+        "p_raw": 0.343642,
+        "q_bh": 0.572737,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S3_Islam_Refugee",
+        "target": "S1_Game_Subculture",
+        "F": 1.6125,
+        "p_raw": 0.171237,
+        "q_bh": 0.489249,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S4_Gender_Disability",
+        "target": "S1_Game_Subculture",
+        "F": 0.2375,
+        "p_raw": 0.917004,
+        "q_bh": 0.938727,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S5_China",
+        "target": "S1_Game_Subculture",
+        "F": 0.5856,
+        "p_raw": 0.673313,
+        "q_bh": 0.841641,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S1_Game_Subculture",
+        "target": "S2_LGBTQ",
+        "F": 1.77,
+        "p_raw": 0.135011,
+        "q_bh": 0.450037,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S3_Islam_Refugee",
+        "target": "S2_LGBTQ",
+        "F": 3.2752,
+        "p_raw": 0.012037,
+        "q_bh": 0.20572,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S4_Gender_Disability",
+        "target": "S2_LGBTQ",
+        "F": 2.1308,
+        "p_raw": 0.077161,
+        "q_bh": 0.308644,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S5_China",
+        "target": "S2_LGBTQ",
+        "F": 1.4527,
+        "p_raw": 0.21684,
+        "q_bh": 0.5421,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S1_Game_Subculture",
+        "target": "S3_Islam_Refugee",
+        "F": 0.3889,
+        "p_raw": 0.816505,
+        "q_bh": 0.938727,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S2_LGBTQ",
+        "target": "S3_Islam_Refugee",
+        "F": 1.136,
+        "p_raw": 0.339768,
+        "q_bh": 0.572737,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S4_Gender_Disability",
+        "target": "S3_Islam_Refugee",
+        "F": 0.7358,
+        "p_raw": 0.568208,
+        "q_bh": 0.757611,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S5_China",
+        "target": "S3_Islam_Refugee",
+        "F": 2.6881,
+        "p_raw": 0.031596,
+        "q_bh": 0.21064,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S1_Game_Subculture",
+        "target": "S4_Gender_Disability",
+        "F": 1.2068,
+        "p_raw": 0.308108,
+        "q_bh": 0.572737,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S2_LGBTQ",
+        "target": "S4_Gender_Disability",
+        "F": 0.3168,
+        "p_raw": 0.866655,
+        "q_bh": 0.938727,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S3_Islam_Refugee",
+        "target": "S4_Gender_Disability",
+        "F": 2.9507,
+        "p_raw": 0.020572,
+        "q_bh": 0.20572,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S5_China",
+        "target": "S4_Gender_Disability",
+        "F": 0.8903,
+        "p_raw": 0.470093,
+        "q_bh": 0.714981,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S1_Game_Subculture",
+        "target": "S5_China",
+        "F": 1.2116,
+        "p_raw": 0.306033,
+        "q_bh": 0.572737,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S2_LGBTQ",
+        "target": "S5_China",
+        "F": 0.1991,
+        "p_raw": 0.938727,
+        "q_bh": 0.938727,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S3_Islam_Refugee",
+        "target": "S5_China",
+        "F": 2.1775,
+        "p_raw": 0.07169,
+        "q_bh": 0.308644,
+        "significant_fdr05": false
+      },
+      {
+        "source": "S4_Gender_Disability",
+        "target": "S5_China",
+        "F": 0.8404,
+        "p_raw": 0.500487,
+        "q_bh": 0.714981,
+        "significant_fdr05": false
+      }
+    ],
+    "orthogonalized_irf_cumulative_8w": {
+      "S1_Game_Subculture": {
+        "S1_Game_Subculture": 0.4018,
+        "S2_LGBTQ": 0.1367,
+        "S3_Islam_Refugee": -0.0316,
+        "S4_Gender_Disability": -0.016,
+        "S5_China": 0.0379
+      },
+      "S2_LGBTQ": {
+        "S1_Game_Subculture": -0.1654,
+        "S2_LGBTQ": 0.4393,
+        "S3_Islam_Refugee": 0.3727,
+        "S4_Gender_Disability": 0.0639,
+        "S5_China": -0.0223
+      },
+      "S3_Islam_Refugee": {
+        "S1_Game_Subculture": -0.0942,
+        "S2_LGBTQ": 0.3172,
+        "S3_Islam_Refugee": 0.9523,
+        "S4_Gender_Disability": 0.0204,
+        "S5_China": 0.0405
+      },
+      "S4_Gender_Disability": {
+        "S1_Game_Subculture": -0.1464,
+        "S2_LGBTQ": -0.039,
+        "S3_Islam_Refugee": 0.26,
+        "S4_Gender_Disability": 0.7445,
+        "S5_China": 0.1125
+      },
+      "S5_China": {
+        "S1_Game_Subculture": 0.024,
+        "S2_LGBTQ": 0.0876,
+        "S3_Islam_Refugee": 0.0258,
+        "S4_Gender_Disability": -0.0038,
+        "S5_China": 0.483
+      }
+    },
+    "var_stable": true,
+    "durbin_watson": {
+      "S1_Game_Subculture": 1.9278,
+      "S2_LGBTQ": 2.1329,
+      "S3_Islam_Refugee": 2.0255,
+      "S4_Gender_Disability": 1.8781,
+      "S5_China": 1.9054
+    },
+    "sensitivity": {
+      "strict_p1": {
+        "lag": 1,
+        "n_significant_fdr05": 1,
+        "min_q": 0.04182,
+        "top3": [
+          {
+            "source": "S1_Game_Subculture",
+            "target": "S4_Gender_Disability",
+            "p_raw": 0.002091,
+            "q_bh": 0.04182,
+            "significant_fdr05": true
+          },
+          {
+            "source": "S3_Islam_Refugee",
+            "target": "S1_Game_Subculture",
+            "p_raw": 0.086144,
+            "q_bh": 0.684833,
+            "significant_fdr05": false
+          },
+          {
+            "source": "S3_Islam_Refugee",
+            "target": "S5_China",
+            "p_raw": 0.102725,
+            "q_bh": 0.684833,
+            "significant_fdr05": false
+          }
+        ]
+      },
+      "loose_pAIC": {
+        "lag": 3,
+        "n_significant_fdr05": 0,
+        "min_q": 0.18074,
+        "top3": [
+          {
+            "source": "S5_China",
+            "target": "S3_Islam_Refugee",
+            "p_raw": 0.009037,
+            "q_bh": 0.18074,
+            "significant_fdr05": false
+          },
+          {
+            "source": "S2_LGBTQ",
+            "target": "S3_Islam_Refugee",
+            "p_raw": 0.069214,
+            "q_bh": 0.391902,
+            "significant_fdr05": false
+          },
+          {
+            "source": "S1_Game_Subculture",
+            "target": "S4_Gender_Disability",
+            "p_raw": 0.084661,
+            "q_bh": 0.391902,
+            "significant_fdr05": false
+          }
+        ]
+      }
+    }
+  },
+  "autocatalytic_sigmoid_full_window": {
+    "S1_Game_Subculture": {
+      "K": 815.2,
+      "k0": 52.37,
+      "k_auto": 9.489e-06,
+      "t0": 68.9,
+      "rate_r=k_auto*K_per_day": 0.00774,
+      "r2": 0.9944,
+      "aic_sigmoid": 3060.0,
+      "aic_linear": 4043.5,
+      "delta_aic_linear_minus_sigmoid": 983.5,
+      "final_cumulative": 647,
+      "peak_daily": 28,
+      "peak_date": "2018-09-28"
+    },
+    "S2_LGBTQ": {
+      "K": 1171.4,
+      "k0": 314.82,
+      "k_auto": 1.037e-05,
+      "t0": 226.9,
+      "rate_r=k_auto*K_per_day": 0.01214,
+      "r2": 0.989,
+      "aic_sigmoid": 4284.1,
+      "aic_linear": 4997.5,
+      "delta_aic_linear_minus_sigmoid": 713.4,
+      "final_cumulative": 1121,
+      "peak_daily": 26,
+      "peak_date": "2018-07-10"
+    },
+    "S3_Islam_Refugee": {
+      "K": 6763.0,
+      "k0": 2784.81,
+      "k_auto": 5.217e-06,
+      "t0": 310.7,
+      "rate_r=k_auto*K_per_day": 0.03528,
+      "r2": 0.9879,
+      "aic_sigmoid": 6627.4,
+      "aic_linear": 8038.2,
+      "delta_aic_linear_minus_sigmoid": 1410.8,
+      "final_cumulative": 6763,
+      "peak_daily": 185,
+      "peak_date": "2018-06-27"
+    },
+    "S4_Gender_Disability": {
+      "K": 7301.9,
+      "k0": 1653.18,
+      "k_auto": 1.274e-06,
+      "t0": 201.7,
+      "rate_r=k_auto*K_per_day": 0.0093,
+      "r2": 0.9881,
+      "aic_sigmoid": 6284.3,
+      "aic_linear": 6257.4,
+      "delta_aic_linear_minus_sigmoid": -26.9,
+      "final_cumulative": 7205,
+      "peak_daily": 98,
+      "peak_date": "2019-02-19"
+    },
+    "S5_China": {
+      "K": 1620.8,
+      "k0": 253.29,
+      "k_auto": 6.673e-06,
+      "t0": 191.3,
+      "rate_r=k_auto*K_per_day": 0.01082,
+      "r2": 0.9984,
+      "aic_sigmoid": 3476.7,
+      "aic_linear": 5090.4,
+      "delta_aic_linear_minus_sigmoid": 1613.7,
+      "final_cumulative": 1520,
+      "peak_daily": 22,
+      "peak_date": "2018-10-20"
+    }
+  },
+  "yemen_episode_sigmoid": {
+    "window": [
+      "2018-05-01",
+      "2018-09-30"
+    ],
+    "K": 5412.0,
+    "k0": 309.97,
+    "k_auto": 1.327e-05,
+    "t0_day": 31.9,
+    "t0_date": "2018-06-01",
+    "rate_r_per_day": 0.0718,
+    "r2": 0.9871,
+    "delta_aic_linear_minus_sigmoid": 263.2
+  },
+  "kagan_nonlinear_effect": {
+    "sample": "strict 기질 청원(분석 창 내)",
+    "n_substrate": 16208,
+    "n_full_window": 432313,
+    "descriptive_by_ligand_count": [
+      {
+        "ligand_count": 0,
+        "n": 10930,
+        "mean_agree": 262.5691,
+        "median_agree": 17.5,
+        "share_ge1k": 0.0088,
+        "share_ge200k": 0.0004,
+        "clone_rate": 0.0542,
+        "median_len": 292.0
+      },
+      {
+        "ligand_count": 1,
+        "n": 4256,
+        "mean_agree": 232.2237,
+        "median_agree": 21.0,
+        "share_ge1k": 0.0148,
+        "share_ge200k": 0.0,
+        "clone_rate": 0.0832,
+        "median_len": 641.5
+      },
+      {
+        "ligand_count": 2,
+        "n": 889,
+        "mean_agree": 368.2193,
+        "median_agree": 25.0,
+        "share_ge1k": 0.0337,
+        "share_ge200k": 0.0,
+        "clone_rate": 0.153,
+        "median_len": 1538.0
+      },
+      {
+        "ligand_count": 3,
+        "n": 112,
+        "mean_agree": 1113.3482,
+        "median_agree": 25.0,
+        "share_ge1k": 0.0625,
+        "share_ge200k": 0.0,
+        "clone_rate": 0.0625,
+        "median_len": 4955.5
+      },
+      {
+        "ligand_count": 4,
+        "n": 21,
+        "mean_agree": 2240.8095,
+        "median_agree": 91.0,
+        "share_ge1k": 0.2381,
+        "share_ge200k": 0.0,
+        "clone_rate": 0.2857,
+        "median_len": 13844.0
+      }
+    ],
+    "ols_raw_lig_cat": {
+      "C(lig_cat)[T.1]": {
+        "coef": 0.2444,
+        "ci_low": 0.1969,
+        "ci_high": 0.2919,
+        "p": 0.0
+      },
+      "C(lig_cat)[T.2]": {
+        "coef": 0.5054,
+        "ci_low": 0.3985,
+        "ci_high": 0.6123,
+        "p": 0.0
+      },
+      "C(lig_cat)[T.3]": {
+        "coef": 0.6902,
+        "ci_low": 0.3155,
+        "ci_high": 1.0648,
+        "p": 0.000306
+      }
+    },
+    "ols_controlled_lig_cat": {
+      "C(lig_cat)[T.1]": {
+        "coef": 0.1379,
+        "ci_low": 0.0916,
+        "ci_high": 0.1841,
+        "p": 0.0
+      },
+      "C(lig_cat)[T.2]": {
+        "coef": 0.3548,
+        "ci_low": 0.2507,
+        "ci_high": 0.4588,
+        "p": 0.0
+      },
+      "C(lig_cat)[T.3]": {
+        "coef": 0.3253,
+        "ci_low": -0.0188,
+        "ci_high": 0.6693,
+        "p": 0.063887
+      }
+    },
+    "ols_controlled_r2": 0.2481,
+    "ols_controlled_log_len": {
+      "log_len": {
+        "coef": 0.1235,
+        "ci_low": 0.1023,
+        "ci_high": 0.1447,
+        "p": 0.0
+      }
+    },
+    "marginal_increments_controlled": {
+      "0->1": 0.1379,
+      "1->2": 0.2169,
+      "2->3": -0.0295
+    },
+    "second_difference_test_(b3-2b2+b1)": {
+      "estimate": -0.2464,
+      "p": 0.22067
+    },
+    "ols_quadratic": {
+      "ligand_count": {
+        "coef": 0.1395,
+        "ci_low": 0.0522,
+        "ci_high": 0.2267,
+        "p": 0.001733
+      },
+      "I(ligand_count ** 2)": {
+        "coef": 0.0071,
+        "ci_low": -0.0428,
+        "ci_high": 0.057,
+        "p": 0.780361
+      }
+    },
+    "logit_agree_ge_1000_odds_ratios": {
+      "C(lig_cat)[T.1]": {
+        "OR": 0.9015,
+        "p": 0.567468
+      },
+      "C(lig_cat)[T.2]": {
+        "OR": 1.1061,
+        "p": 0.690734
+      },
+      "C(lig_cat)[T.3]": {
+        "OR": 0.8977,
+        "p": 0.807224
+      }
+    },
+    "interaction_full_corpus": {
+      "C(lig_cat)[T.1]": {
+        "coef": 0.1411,
+        "ci_low": 0.1276,
+        "ci_high": 0.1545,
+        "p": 0.0
+      },
+      "C(lig_cat)[T.2]": {
+        "coef": 0.1318,
+        "ci_low": 0.0854,
+        "ci_high": 0.1782,
+        "p": 0.0
+      },
+      "C(lig_cat)[T.3]": {
+        "coef": -0.3929,
+        "ci_low": -0.5617,
+        "ci_high": -0.224,
+        "p": 5e-06
+      },
+      "C(lig_cat)[T.1]:is_substrate": {
+        "coef": 0.011,
+        "ci_low": -0.0366,
+        "ci_high": 0.0587,
+        "p": 0.649473
+      },
+      "C(lig_cat)[T.2]:is_substrate": {
+        "coef": 0.2051,
+        "ci_low": 0.0925,
+        "ci_high": 0.3177,
+        "p": 0.000358
+      },
+      "C(lig_cat)[T.3]:is_substrate": {
+        "coef": 0.6596,
+        "ci_low": 0.2607,
+        "ci_high": 1.0584,
+        "p": 0.00119
+      }
+    },
+    "interaction_n": 432313
+  },
+  "catalytic_hub_shift": {
+    "profile_by_substrate": {
+      "S1_Game_Subculture": {
+        "n": 647,
+        "hubA_rate": 0.0711,
+        "hubB_rate": 0.0974,
+        "hubC_rate_(A&B)": 0.0294,
+        "security_rate_L4": 0.1406,
+        "ligand_rates": {
+          "L1_Morality_Family": 0.0587,
+          "L2_Hygiene_Disease": 0.0278,
+          "L3_Meritocracy_Freeride": 0.0974,
+          "L4_Security_Sovereignty": 0.1406
+        },
+        "ee_B_minus_A": 0.156,
+        "ee_bootstrap95": [
+          0.0,
+          0.3062
+        ],
+        "clone_rate": 0.0526
+      },
+      "S2_LGBTQ": {
+        "n": 1121,
+        "hubA_rate": 0.2899,
+        "hubB_rate": 0.165,
+        "hubC_rate_(A&B)": 0.0517,
+        "security_rate_L4": 0.207,
+        "ligand_rates": {
+          "L1_Morality_Family": 0.1347,
+          "L2_Hygiene_Disease": 0.2061,
+          "L3_Meritocracy_Freeride": 0.165,
+          "L4_Security_Sovereignty": 0.207
+        },
+        "ee_B_minus_A": -0.2745,
+        "ee_bootstrap95": [
+          -0.3465,
+          -0.2046
+        ],
+        "clone_rate": 0.0865
+      },
+      "S3_Islam_Refugee": {
+        "n": 6763,
+        "hubA_rate": 0.0288,
+        "hubB_rate": 0.0933,
+        "hubC_rate_(A&B)": 0.0071,
+        "security_rate_L4": 0.2713,
+        "ligand_rates": {
+          "L1_Morality_Family": 0.0164,
+          "L2_Hygiene_Disease": 0.0161,
+          "L3_Meritocracy_Freeride": 0.0933,
+          "L4_Security_Sovereignty": 0.2713
+        },
+        "ee_B_minus_A": 0.5278,
+        "ee_bootstrap95": [
+          0.4716,
+          0.5837
+        ],
+        "clone_rate": 0.0265
+      },
+      "S4_Gender_Disability": {
+        "n": 7205,
+        "hubA_rate": 0.0625,
+        "hubB_rate": 0.126,
+        "hubC_rate_(A&B)": 0.0143,
+        "security_rate_L4": 0.2265,
+        "ligand_rates": {
+          "L1_Morality_Family": 0.0543,
+          "L2_Hygiene_Disease": 0.0132,
+          "L3_Meritocracy_Freeride": 0.126,
+          "L4_Security_Sovereignty": 0.2265
+        },
+        "ee_B_minus_A": 0.3373,
+        "ee_bootstrap95": [
+          0.2902,
+          0.3817
+        ],
+        "clone_rate": 0.112
+      },
+      "S5_China": {
+        "n": 1520,
+        "hubA_rate": 0.0632,
+        "hubB_rate": 0.1375,
+        "hubC_rate_(A&B)": 0.0145,
+        "security_rate_L4": 0.2645,
+        "ligand_rates": {
+          "L1_Morality_Family": 0.0257,
+          "L2_Hygiene_Disease": 0.0421,
+          "L3_Meritocracy_Freeride": 0.1375,
+          "L4_Security_Sovereignty": 0.2645
+        },
+        "ee_B_minus_A": 0.3705,
+        "ee_bootstrap95": [
+          0.2721,
+          0.4641
+        ],
+        "clone_rate": 0.0757
+      }
+    },
+    "ee_by_half_year": {
+      "S1_Game_Subculture": {
+        "2017H2": {
+          "n": 69,
+          "ee": -0.4286,
+          "hubA": 5,
+          "hubB": 2
+        },
+        "2018H1": {
+          "n": 173,
+          "ee": 0.3478,
+          "hubA": 15,
+          "hubB": 31
+        },
+        "2018H2": {
+          "n": 249,
+          "ee": -0.037,
+          "hubA": 14,
+          "hubB": 13
+        },
+        "2019H1": {
+          "n": 156,
+          "ee": 0.1724,
+          "hubA": 12,
+          "hubB": 17
+        }
+      },
+      "S2_LGBTQ": {
+        "2017H2": {
+          "n": 135,
+          "ee": -0.4118,
+          "hubA": 36,
+          "hubB": 15
+        },
+        "2018H1": {
+          "n": 316,
+          "ee": -0.172,
+          "hubA": 92,
+          "hubB": 65
+        },
+        "2018H2": {
+          "n": 579,
+          "ee": -0.2571,
+          "hubA": 154,
+          "hubB": 91
+        },
+        "2019H1": {
+          "n": 91,
+          "ee": -0.5088,
+          "hubA": 43,
+          "hubB": 14
+        }
+      },
+      "S3_Islam_Refugee": {
+        "2017H2": {
+          "n": 85,
+          "ee": 0.2,
+          "hubA": 8,
+          "hubB": 12
+        },
+        "2018H1": {
+          "n": 2181,
+          "ee": 0.596,
+          "hubA": 40,
+          "hubB": 158
+        },
+        "2018H2": {
+          "n": 4203,
+          "ee": 0.5229,
+          "hubA": 130,
+          "hubB": 415
+        },
+        "2019H1": {
+          "n": 294,
+          "ee": 0.4603,
+          "hubA": 17,
+          "hubB": 46
+        }
+      },
+      "S4_Gender_Disability": {
+        "2017H2": {
+          "n": 864,
+          "ee": 0.6815,
+          "hubA": 25,
+          "hubB": 132
+        },
+        "2018H1": {
+          "n": 2232,
+          "ee": 0.3131,
+          "hubA": 170,
+          "hubB": 325
+        },
+        "2018H2": {
+          "n": 2435,
+          "ee": 0.1354,
+          "hubA": 166,
+          "hubB": 218
+        },
+        "2019H1": {
+          "n": 1674,
+          "ee": 0.4472,
+          "hubA": 89,
+          "hubB": 233
+        }
+      },
+      "S5_China": {
+        "2017H2": {
+          "n": 145,
+          "ee": -0.234,
+          "hubA": 29,
+          "hubB": 18
+        },
+        "2018H1": {
+          "n": 504,
+          "ee": 0.451,
+          "hubA": 28,
+          "hubB": 74
+        },
+        "2018H2": {
+          "n": 666,
+          "ee": 0.5593,
+          "hubA": 26,
+          "hubB": 92
+        },
+        "2019H1": {
+          "n": 205,
+          "ee": 0.3158,
+          "hubA": 13,
+          "hubB": 25
+        }
+      }
+    },
+    "logit_trend_hubB_vs_hubA": {
+      "S1_Game_Subculture": {
+        "n_A_xor_B": 71,
+        "logit_slope_per_month": -0.0246,
+        "p": 0.597712
+      },
+      "S2_LGBTQ": {
+        "n_A_xor_B": 394,
+        "logit_slope_per_month": -0.0703,
+        "p": 0.004476
+      },
+      "S3_Islam_Refugee": {
+        "n_A_xor_B": 730,
+        "logit_slope_per_month": 0.0225,
+        "p": 0.494449
+      },
+      "S4_Gender_Disability": {
+        "n_A_xor_B": 1152,
+        "logit_slope_per_month": -0.0257,
+        "p": 0.034827
+      },
+      "S5_China": {
+        "n_A_xor_B": 261,
+        "logit_slope_per_month": 0.111,
+        "p": 0.000273
+      }
+    },
+    "hubC_by_substrate_chi2": {
+      "chi2": 144.873,
+      "dof": 4,
+      "p": 0.0,
+      "table": {
+        "S1_Game_Subculture": {
+          "hubC": 19,
+          "not_hubC": 628
+        },
+        "S2_LGBTQ": {
+          "hubC": 58,
+          "not_hubC": 1063
+        },
+        "S3_Islam_Refugee": {
+          "hubC": 48,
+          "not_hubC": 6715
+        },
+        "S4_Gender_Disability": {
+          "hubC": 103,
+          "not_hubC": 7102
+        },
+        "S5_China": {
+          "hubC": 22,
+          "not_hubC": 1498
+        }
+      }
+    },
+    "s5_hubC_fisher_vs_rest": {
+      "s5_hubC": 22,
+      "s5_n": 1520,
+      "rest_hubC": 148,
+      "rest_n": 14688,
+      "odds_ratio": 1.4428,
+      "p": 0.112161
+    },
+    "substrate_cooccurrence_strict": {
+      "S1_Game_Subculture": {
+        "S1_Game_Subculture": 647,
+        "S2_LGBTQ": 39,
+        "S3_Islam_Refugee": 9,
+        "S4_Gender_Disability": 174,
+        "S5_China": 2
+      },
+      "S2_LGBTQ": {
+        "S1_Game_Subculture": 39,
+        "S2_LGBTQ": 1121,
+        "S3_Islam_Refugee": 191,
+        "S4_Gender_Disability": 162,
+        "S5_China": 21
+      },
+      "S3_Islam_Refugee": {
+        "S1_Game_Subculture": 9,
+        "S2_LGBTQ": 191,
+        "S3_Islam_Refugee": 6763,
+        "S4_Gender_Disability": 116,
+        "S5_China": 423
+      },
+      "S4_Gender_Disability": {
+        "S1_Game_Subculture": 174,
+        "S2_LGBTQ": 162,
+        "S3_Islam_Refugee": 116,
+        "S4_Gender_Disability": 7205,
+        "S5_China": 9
+      },
+      "S5_China": {
+        "S1_Game_Subculture": 2,
+        "S2_LGBTQ": 21,
+        "S3_Islam_Refugee": 423,
+        "S4_Gender_Disability": 9,
+        "S5_China": 1520
+      }
+    }
+  },
+  "copy_paste_replication": {
+    "corpus_clone_rate": 0.0613,
+    "non_substrate_clone_rate": 0.0611,
+    "by_substrate": {
+      "S1_Game_Subculture": {
+        "n": 647,
+        "clone_rate": 0.0526,
+        "rate_ratio_vs_corpus": 0.8569,
+        "n_clone_clusters": 25,
+        "largest_cluster": 11,
+        "median_agree_clone": 49.0,
+        "median_agree_nonclone": 4.0
+      },
+      "S2_LGBTQ": {
+        "n": 1121,
+        "clone_rate": 0.0865,
+        "rate_ratio_vs_corpus": 1.411,
+        "n_clone_clusters": 61,
+        "largest_cluster": 246,
+        "median_agree_clone": 15.0,
+        "median_agree_nonclone": 20.0
+      },
+      "S3_Islam_Refugee": {
+        "n": 6763,
+        "clone_rate": 0.0265,
+        "rate_ratio_vs_corpus": 0.4316,
+        "n_clone_clusters": 97,
+        "largest_cluster": 246,
+        "median_agree_clone": 20.0,
+        "median_agree_nonclone": 36.0
+      },
+      "S4_Gender_Disability": {
+        "n": 7205,
+        "clone_rate": 0.112,
+        "rate_ratio_vs_corpus": 1.8264,
+        "n_clone_clusters": 271,
+        "largest_cluster": 181,
+        "median_agree_clone": 9.0,
+        "median_agree_nonclone": 13.0
+      },
+      "S5_China": {
+        "n": 1520,
+        "clone_rate": 0.0757,
+        "rate_ratio_vs_corpus": 1.2337,
+        "n_clone_clusters": 51,
+        "largest_cluster": 86,
+        "median_agree_clone": 5.0,
+        "median_agree_nonclone": 13.0
+      }
+    }
+  },
+  "figures": [
+    "fig1_weekly_substrate_concentration.png",
+    "fig2_cross_catalysis_gamma_heatmap.png",
+    "fig3_yemen_autocatalytic_sigmoid.png",
+    "fig4_nle_ligand_count_effect.png",
+    "fig5_hub_ee_by_half_year.png"
+  ],
+  "environment": {
+    "python": "3.14.8",
+    "pandas": "3.1.0",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "statsmodels": "0.15.0",
+    "matplotlib": "3.11.2"
+  }
+}
